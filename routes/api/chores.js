@@ -5,8 +5,8 @@ const router = express.Router();
 const choresCtrl = require("../../controllers/chores/chores");
 
 
-router.post("/", choresCtrl.createChore);
-router.put("/:id", choresCtrl.updateChore);
-router.delete("/:id", choresCtrl.deleteChore);
+router.post("/", choresCtrl.createChore); // Create a chore
+router.put("/:id", choresCtrl.updateChore);  //Update a chore
+router.delete("/:id", choresCtrl.deleteChore); //Delete a chore
 
 module.exports = router;
