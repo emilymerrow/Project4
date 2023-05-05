@@ -7,4 +7,14 @@ module.exports = {
     deleteChore,
 };
 
-function createChore(req, res) {}
+function createChore(req, res) {
+    //create chore functionality
+}
+
+function updateChore(req, res) {
+
+}
+
+function deleteChore(req, res) {
+    
+}
