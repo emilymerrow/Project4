@@ -6,7 +6,7 @@ function signup(user) {
   console.log(user)
   return (fetch(BASE_URL + 'signup', {
     method: 'POST',
-    headers: new Headers({'Content-Type': 'application/json'}),
+    // headers: new Headers({'Content-Type': 'application/json'}),
     body: user,
   })
   .then(res => {
