@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ChoreForm from "./ChoreForm";
-import { getAllChores, createChore, updateChore, deleteChore } from "../services/choresService";
+import { getAll, createChore } from "../../utils/choresService";
 
 
 export default function ChoreList() {
@@ -14,7 +14,7 @@ export default function ChoreList() {
 
     // Fetch chores from the API and update the state
     async function fetchChores() {
-        const fetchedChores = await getAllChores();
+        const fetchedChores = await getAll();
         setChores(fetchedChores);
     }
 

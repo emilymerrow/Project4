@@ -8,5 +8,6 @@ const choresCtrl = require("../../controllers/chores/chores");
 router.post("/", choresCtrl.createChore); // Create a chore
 router.put("/:id", choresCtrl.updateChore);  //Update a chore
 router.delete("/:id", choresCtrl.deleteChore); //Delete a chore
+router.get('/', choresCtrl.indexChore)
 
 module.exports = router;

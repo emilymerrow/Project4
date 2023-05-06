@@ -5,6 +5,7 @@ module.exports = {
     createChore,
     updateChore,
     deleteChore,
+    indexChore,
 };
 
 async function createChore(req, res) {
@@ -64,4 +65,13 @@ async function deleteChore(req, res) {
 // If there is an errow, send a 500 status with the error message
   res.status(500).json(err);
   }
+  
+}
+async function indexChore(req, res) {
+    try {
+        const chores = await Chore.find({}).populate('user').exec()
+        res.status(200).json({chores: chores})
+    } catch(err) {
+
+    }
 }
