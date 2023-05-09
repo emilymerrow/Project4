@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Dimmer, Segment, Image, Button } from "semantic-ui-react";
 import Loader from "../Loader/Loader";
 import UpdateChore from "./UpdateChore";
@@ -8,12 +8,14 @@ import DeleteChore from "./DeleteChore";
 export default function ChoreDisplay({
   chores,
   loading,
-  markChoresAsComplete,
+  completeChore,
   loggedUser,
   handleUpdateChore,
   handleDelete,
+  handleTotalSavingsChange,
 }) {
-  console.log(chores);
+   
+//   console.log(chores);
   if (!Array.isArray(chores)) {
     return <p>Error: Chores data is not an array.</p>;
   }
@@ -57,8 +59,11 @@ export default function ChoreDisplay({
               <>
                 <Button
                   basic
-                  color="green"
-                  onClick={() => markChoresAsComplete(chore._id)}
+                  color={chore.isCompleted ? "red" : "green" }
+                  onClick={() => {
+                completeChore(chore._id, !chore.isCompleted);
+                handleTotalSavingsChange(chore.amount, !chore.isCompleted);
+    }}  //pass the new isComplete status
                 >
                   Mark as Complete
                 </Button>

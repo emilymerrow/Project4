@@ -2,7 +2,9 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { Grid } from "semantic-ui-react";
-
+import PageHeader from "../../components/Header/Header"
+import Loader from"../../components/Loader/Loader"
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage"
 
 import userService from "../../utils/userService";
 import * as choresApi from '../../utils/choresService'

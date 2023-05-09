@@ -6,6 +6,7 @@ module.exports = {
     updateChore,
     deleteChore,
     indexChore,
+    completeChore,
 };
 
 const S3 = require('aws-sdk/clients/s3');
@@ -82,9 +83,33 @@ async function deleteChore(req, res) {
     }
 }
 
-async function markChoreAsComplete(req, res) {
+async function completeChore(req, res) {
+    console.log(req.body);
     try {
-        //extract the choreId and userId from the request
+        //extract the choreId and userId from the request param. and body
+        const { id } = req.params;
+        
+        // extract the isCompleted value from the request body
+        const { isCompleted } = req.body;
+
+        //Find the chore in the database by its ID
+        const chore = await Chore.findById(id);
+
+        // If the chore doesn't exist, return a 404 error
+        if (!chore) {
+            return res.status(404).json({message: 'Chore not found'});
+        }
+        chore.isCompleted = isCompleted;
+        await chore.save();
+        
+    // Call the completeChore method on the chore and pass in the userId
+    // await chore.completeChore(userId);
+
+    res.status(200).json({ message: 'Chore marked as complete and savings updated'});
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Internal server error'});
     }
 }
 

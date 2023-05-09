@@ -69,18 +69,18 @@ export function getAll() {
   });
 }
 // Create the function to msrk s chore as complete
-export function complete(choreId) {
+export function completeChore(choreId, isCompleted) {
   // Send a POST request to the API endpoint with the choreId and userId in the request body
   return fetch(`${BASE_URL}${choreId}/complete`, {
     method: 'POST',
+    body: JSON.stringify({ isCompleted }), //incl isCompleted param in the request body
     headers: {
-      'Content-Type': 'application/json',
-      // Include the user's authentication token in the Authorization header
-      Authorization: 'Bearer' + tokenService.getToken()
+      'Content-Type': 'application/json', // Add the Content-Type header for JSON
+      Authorization: 'Bearer ' + tokenService.getToken()
     },
-    // Convert the request body to a JSON string
-    body: JSON.stringify({ userId: tokenService.getUserFromToken()._id }),
   })
+   
+  
   .then(res => {
     // Check if the response from the server is ok( status code between 200 and 299)
     if (res.ok) return res.json();

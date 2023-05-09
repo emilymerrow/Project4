@@ -13,10 +13,25 @@ import { Grid } from "semantic-ui-react";
 import * as choresService from "../../utils/choresService";
 import tokenService from "../../utils/tokenService";
 
+
 export default function ChorePage({ loggedUser, handleLogout }) {
     const [chores, setChores] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+
+
+  // Add a state for total savings
+  const [totalSavings, setTotalSavings] = useState(0);
+
+ // Add handleTotalSavingsChange function here
+ function handleTotalSavingsChange(choreAmount, isCompleted) {
+    if (isCompleted) {
+      setTotalSavings(totalSavings + choreAmount);
+    } else {
+      setTotalSavings(totalSavings - choreAmount);
+    }
+  }
+
 
 // Add your functions to handle chores (CRUD operations) here
 
@@ -64,39 +79,57 @@ async function getChores() {
         const response = await choresService.getAll();
         console.log(response, "data");
         setChores(response.chores);
+        
         setLoading(false);
     } catch (err) {
         console.log(err.message, "this is the error in getChores");
         setLoading(false);
     }
 }
+
+
 // function to mark a chore as complete
 
-async function completeChore(choreId) {
+async function completeChore(choreId, isCompleted) {
     try {
-        // send a POST request to the `/api/chores/:choreId/complete` endpoint
-        // pass the logges user's Id in the request body
-        const response = await fetch(`/api/chores/${choreId}/complete`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                // Include the authorization header to ensure only 
-                //authenticated users can mark chores as complete
-                'Authorization': 'Bearer' + tokenService.getToken(),
-            },
-        body: JSON.stringify({ userId: loggedUser,_id }),
-        });
-    // If the request is successful, refresh the chore list
-    if (response.ok) {
-        getChores()
-    } else {
-        // If the request fails, log an error message
-        console.log('Error: Failed to mark chore as complete');
-    }
+         // Call the completeChore function from the choresService with the provided choreId
+         // This sends a request to the server to mark the chore as completed
+      await choresService.completeChore(choreId, isCompleted); //pass the isCompleted statut to the API call
+
+      // Update the state of the chores in the component
+    // For each chore in the chores array, check if its ID matches the provided choreId
+    // If it does, create a new object with the same properties as the chore, but set isCompleted to true
+    // If it doesn't match, return the original chore object unchanged
+      setChores(
+        chores.map((chore) =>
+          chore._id === choreId ? { ...chore, isCompleted: isCompleted } : chore
+        )
+      );
+        // Find the updatedChore using choreId
+      const updatedChore = chores.find((chore) => chore._id === choreId);
+
+      // Call handleTotalSavingsChange with the chore amount and completion status
+      handleTotalSavingsChange(updatedChore.amount, isCompleted);
+    
+      
+      //update the total savings
+    //   const updatedChore = chores.find((chore) => chore._id === choreId);
+    //   if (isCompleted) {
+    //     setTotalSavings(totalSavings + updatedChore.amount);
+    //   } else {
+    //     setTotalSavings(totalSavings - updatedChore.amount);
+    //   }
     } catch (err) {
-        //Log any error that occurs during the request
-        console.log(err, "error in completeChore");
+      console.log(err);
     }
+  }
+//   function handleTotalSavingsChange(choreAmount, isCompleted) {
+//     if (isCompleted) {
+//       setTotalSavings(totalSavings + choreAmount);
+//     } else {
+//       setTotalSavings(totalSavings - choreAmount);
+//     }
+//   }
 
 useEffect(() => {
     getChores();
@@ -132,10 +165,11 @@ return (
                     loggedUser={loggedUser}
                     handleUpdateChore={handleUpdateChore} // pass the handleUpdateChore function as a prop
                     handleDelete={handleDelete}
+                    handleTotalSavingsChange={handleTotalSavingsChange}
                 />
 
             </Grid.Column>
         </Grid.Row>
     </Grid>
 );
-}}
+}
