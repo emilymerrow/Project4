@@ -10,7 +10,7 @@ export default function AddChoreForm({ handleAddChore }) {
         setChoreName(e.target.value);
     }
     function handleChoreValueChange(e) {
-        setChoreName(e.target.value);
+        setChoreValue(e.target.value);
     }
     function handleChoreDescriptionChange(e) {
         setChoreDescription(e.target.value);
@@ -20,11 +20,15 @@ export default function AddChoreForm({ handleAddChore }) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        //Prepare the formData for submission
+        //Create a formData object with the keys that
+        //match the properties in the model
         const formData = {
-            name: choreName,
-            money: parseFloat(choreValue),
+            title: choreName,
+            amount: choreValue,
+            description: choreDescription,
         };
+
+       
 
         handleAddChore(formData); //handleAddChore comes from the ChorePage component
         //reset the form data
@@ -46,10 +50,10 @@ export default function AddChoreForm({ handleAddChore }) {
                 <Form.Input
                     type="number"
                     min="0"
-                    step="0.01"
+                    step="1"
                     placeholder="Chore Value"
                     required
-                    name={choreValue}
+                    name="choreValue"
                     value={choreValue}
                     onChange={handleChoreValueChange}
                 />

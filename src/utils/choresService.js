@@ -1,13 +1,15 @@
 
 
 import tokenService from "./tokenService";
+//Set the base URL for the API endpoint
 const BASE_URL = '/api/chores/';
 
 export function createChore(data){
 	return fetch(BASE_URL, {
 		method: 'POST',
-		body: data,
+		body: JSON.stringify(data),
 		headers: {
+      'Content-Type': 'application/json',
 			// convention for sending jwts
 			Authorization: "Bearer " + tokenService.getToken() // < this is how we get the token from localstorage and and it to our api request
 			// so the server knows who the request is coming from when the client is trying to make a POST
@@ -21,10 +23,32 @@ export function createChore(data){
 	})
 }
 
-
-// This function is being called in the FeedPage when our useEffect runs when the component loads
-// in order to get all the posts
-
+export function updateChore(choreId, data) {
+  return fetch(`${BASE_URL}${choreId}`, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + tokenService.getToken()
+    }
+  })
+  .then(res => {
+    if (res.ok) return res.json();
+    throw new Error('Something went wrong in update Chore');
+  });
+}
+export function deleteChore(choreId) {
+  return fetch(`${BASE_URL}${choreId}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + tokenService.getToken()
+    }
+  })
+  .then(res => {
+    if (res.ok) return res.json();
+    throw new Error('Something went wrong in delete Chore');
+  });
+}
 
 export function getAll() {
 	// the return, helps because 
@@ -39,5 +63,28 @@ export function getAll() {
 		Authorization: 'Bearer ' + tokenService.getToken()
 	  }
 	})
-	.then(res => res.json());
-  }
+	.then(res => {
+    console.log("Fetched chores:", res);
+    return res.json();
+  });
+}
+// Create the function to msrk s chore as complete
+export function complete(choreId) {
+  // Send a POST request to the API endpoint with the choreId and userId in the request body
+  return fetch(`${BASE_URL}${choreId}/complete`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // Include the user's authentication token in the Authorization header
+      Authorization: 'Bearer' + tokenService.getToken()
+    },
+    // Convert the request body to a JSON string
+    body: JSON.stringify({ userId: tokenService.getUserFromToken()._id }),
+  })
+  .then(res => {
+    // Check if the response from the server is ok( status code between 200 and 299)
+    if (res.ok) return res.json();
+    // Of the response is not ok, throw an error with a message
+    throw new Error('Something went wrong in complete Chore')
+  });
+}

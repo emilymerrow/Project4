@@ -64,13 +64,12 @@ import {
   
       for (let fieldName in state){
           formData.append(fieldName, state[fieldName])
-          console.log(fieldName)
+          
       }
       // if you want to view the formData in the console you have to loop over it, otherwise it will look empty!
       console.log(formData.forEach((item) => console.log(item)));
       // ===================================================================
   
-  console.log(formData, 'anything')
       try {
   
           await userService.signup(formData); //this makes the http request to the our express server /api/users/signup
@@ -130,7 +129,7 @@ import {
                 label="bio"
                 name="bio"
                 value={state.bio}
-                placeholder="Tell us more about your dogs..."
+                placeholder="Tell us more about your kids..."
                 onChange={handleChange}
               />
               <Form.Field>

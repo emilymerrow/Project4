@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 import { Grid } from "semantic-ui-react";
 
-import ChoreList from "../../components/chores/ChoreList";
 
 import userService from "../../utils/userService";
 import * as choresApi from '../../utils/choresService'
@@ -66,12 +65,7 @@ export default function ProfilePage({loggedUser, handleLogout}) {
       </Grid.Row>
       <Grid.Row centered>
         <Grid.Column style={{ maxWidth: 750 }}>
-          <ChoreList
-            chores={chores}
-            isProfile={true}
-            loggedUser={loggedUser}
-            // Pass any additional required functions or props to ChoreList
-          />
+         
         </Grid.Column>
       </Grid.Row>
     </Grid>

@@ -20,17 +20,19 @@ app.use(express.json());
 // This decodes the jwt token, and assigns
 // the user information to req.user
 app.use(require("./config/auth"));
+app.use("/api/users", require("./routes/api/users"));
+app.use('/api/chores', require('./routes/api/chores'));
 
 
 //Import routes
-const userRoutes = require("./routes/api/users");
-const choreRoutes = require("./routes/api/chores");
+// const userRoutes = require("./routes/api/users");
+// const choreRoutes = require("./routes/api/chores");
 
 
 // api routes must be before the "catch all" route
-app.use("/api/users", require("./routes/api/users"));
-app.use("/api/users", userRoutes);
-app.use("/api/chores", choreRoutes);
+// app.use("/api/users", require("./routes/api/users"));
+// app.use("/api/users", userRoutes);
+// app.use("/api/chores", choreRoutes);
 
 
 

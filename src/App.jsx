@@ -5,10 +5,12 @@ import { useState } from 'react'
 
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
-import ChoreList from "./components/chores/ChoreList";
+import ChorePage from "./pages/ChorePage/ChorePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import AboutUs from './pages/AboutUs/AboutUs';
 
 import userService from "./utils/userService";
+
 
 function App() {
   //when the app loads up, grab the token from storage if there is one
@@ -33,7 +35,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<ChoreList loggedUser={user} handleLogout={handleLogout} />}
+          element={<ChorePage loggedUser={user} handleLogout={handleLogout} />}
         />
         <Route
           path="/login"
@@ -46,9 +48,9 @@ function App() {
         <Route
           path="/:username"
           element={
-            <ProfilePage loggedUser={user} handleLogout={handleLogout} />
-          }
+            <ProfilePage loggedUser={user} handleLogout={handleLogout} />          }
         />
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
     );
 }
@@ -59,12 +61,13 @@ function App() {
         path="/login"
         element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
       />
-      <Route
-        path="/signup"
-        element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
-      />
-      <Route path="/*" element={<Navigate to="/login" />} />
-    </Routes>
+    <Route
+      path="/signup"
+      element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
+    />
+    <Route path="/about" element={<AboutUs />} />
+    <Route path="/*" element={<Navigate to={user ? '/' : '/login'} />} />
+  </Routes>
   );
 }
 
@@ -72,24 +75,3 @@ export default App;
 
 
 
-// import LoginPage from "./pages/LoginPage/LoginPage";
-// import ChoreList from "./components/chores/ChoreList";
-// import SignupPage from './pages/SignupPage/SignupPage'
-
-// function App() {
-//   return (
-    
-//       <div className="App">
-//         <Routes>
-//           <Route path="/" element={<h1>Chores</h1>} />
-//           <Route path="/login" element={<LoginPage />} />
-//           <Route path="/chore" element={<ChoreList />} />
-//           <Route path="/signup" element={<SignupPage />} />
-//         </Routes>
-//       </div>
-   
-//   );
-// }
-
-
-// export default App;

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Header, Segment, Image, Icon } from "semantic-ui-react";
+import "./Header.css"; // Import the Header.css file if you haven't already
 
 function PageHeader({ loggedUser, handleLogout }) {
   return (
@@ -23,6 +24,10 @@ function PageHeader({ loggedUser, handleLogout }) {
             avatar
           ></Image>
         </Link>
+      </Header>
+      {/* Add the Chores and Allowance App logo */}
+      <Header as="h2" floated="left" className="logo">
+        Chores and Allowance App
       </Header>
     </Segment>
   );

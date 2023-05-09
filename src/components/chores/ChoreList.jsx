@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ChoreForm from "./ChoreForm";
-import { getAll, createChore } from "../../utils/choresService";
+import { getAll, createChore, updateChore, deleteChore } from "../../utils/choresService";
 
 
 export default function ChoreList() {
     const [chores, setChores] = useState([]); //State to hold the list of chores
     const [choreToEdit, setChoreToEdit] = useState(null); // State to hold the chore being edited
+
+    console.log(chores); //for debugging purpose only :( 
 
 // Fetch chores when the component mounts
     useEffect(() => {
