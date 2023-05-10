@@ -4,7 +4,7 @@ import "./Header.css"; // Import the Header.css file if you haven't already
 
 function PageHeader({ loggedUser, handleLogout }) {
   return (
-    <Segment clearing>
+    <Segment clearing className="page-header">
       <Header as="h2" floated="right">
         <Link to="/">
           <Icon name="home"></Icon>
@@ -22,12 +22,13 @@ function PageHeader({ loggedUser, handleLogout }) {
                 : "https://react.semantic-ui.com/images/wireframe/square-image.png"
             }
             avatar
+            className="header-avatar"
           ></Image>
         </Link>
       </Header>
       {/* Add the Chores and Allowance App logo */}
-      <Header as="h2" floated="left" className="logo">
-        Chores and Allowance App
+      <Header as="h2" floated="" className="logo">
+        Chores Buster App
       </Header>
     </Segment>
   );
