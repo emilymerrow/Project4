@@ -17,4 +17,4 @@ router.get('/', choresCtrl.indexChore)
 router.post("/:id/complete", choresCtrl.completeChore);
 
 
-module.exports = router;
+module.exports = router; 

@@ -1,10 +1,15 @@
 import { useState } from "react"
 import { Button, Form, Segment } from "semantic-ui-react";
 
-export default function AddChoreForm({ handleAddChore }) {
+
+ export default function AddChoreForm({ handleAddChore }) {
     const [choreName, setChoreName] = useState("");
     const [choreValue, setChoreValue] = useState("");
     const [choreDescription, setChoreDescription] = useState("");
+
+
+
+
 
     function handleChoreNameChange(e) {
         setChoreName(e.target.value);

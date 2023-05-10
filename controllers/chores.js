@@ -37,7 +37,7 @@ async function createChore(req, res) {
 }
 
 
-async function indexChore(req, res) {
+async function indexChore(req, res) { // listing of thee model
     try {
         const chores = await Chore.find({}).populate('assignedChild').exec()
         res.status(200).json({ chores: chores })

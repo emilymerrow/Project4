@@ -62,8 +62,7 @@ export default function ChoreDisplay({
                   color={chore.isCompleted ? "red" : "green" }
                   onClick={() => {
                 completeChore(chore._id, !chore.isCompleted);
-                handleTotalSavingsChange(chore.amount, !chore.isCompleted);
-    }}  //pass the new isComplete status
+                   }}  //pass the new isComplete status
                 >
                   Mark as Complete
                 </Button>
