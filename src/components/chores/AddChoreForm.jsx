@@ -9,9 +9,7 @@ import { Button, Form, Segment } from "semantic-ui-react";
 
 
 
-
-
-    function handleChoreNameChange(e) {
+     function handleChoreNameChange(e) {
         setChoreName(e.target.value);
     }
     function handleChoreValueChange(e) {
@@ -27,20 +25,21 @@ import { Button, Form, Segment } from "semantic-ui-react";
 
         //Create a formData object with the keys that
         //match the properties in the model
-        const formData = {
+        const formData = { 
             title: choreName,
             amount: choreValue,
             description: choreDescription,
         };
 
-       
-
         handleAddChore(formData); //handleAddChore comes from the ChorePage component
+        //because we are storeing our state there, so we'll define the api call in that component
         //reset the form data
         setChoreName("");
         setChoreValue("");
         setChoreDescription("");
     }
+     
+
 
     return (
         <Segment>

@@ -59,7 +59,7 @@ export default function ChoreDisplay({
               <>
                 <Button
                   basic
-                  color={chore.isCompleted ? "red" : "green" }
+                  color={chore.isCompleted ? "green" : "red" }
                   onClick={() => {
                 completeChore(chore._id, !chore.isCompleted);
                    }}  //pass the new isComplete status

@@ -7,7 +7,7 @@ const BASE_URL = '/api/chores/';
 export function createChore(data){
 	return fetch(BASE_URL, {
 		method: 'POST',
-		body: JSON.stringify(data),
+		body: JSON.stringify(data), 
 		headers: {
       'Content-Type': 'application/json',
 			// convention for sending jwts

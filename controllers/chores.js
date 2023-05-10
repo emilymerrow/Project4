@@ -16,7 +16,7 @@ const BUCKET_NAME = process.env.BUCKET
 
 
 async function createChore(req, res) {
-    console.log(req)
+    
     try {
         const chore = new Chore({
             title: req.body.title,

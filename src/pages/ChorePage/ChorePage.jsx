@@ -20,17 +20,26 @@ export default function ChorePage({ loggedUser, handleLogout }) {
     const [error, setError] = useState("");
     
 
-    async function handleAddChore(chore) {
+    //we will call this function in our AddChoreForm handleSubmit,
+    //this way,  when we get a response from the server we can update our state
+    //in short this function is responsible for adding a new chore to the list
+    //by communicating with the server and handling the response or errors
+    async function handleAddChore(chore) {    
         try {
             setLoading(true);
-            const responseData = await choresService.createChore(chore);
+            // it tries to create a new chore by calling our create  function i the choresService utils folder
+            const responseData = await choresService.createChore(chore); //Make the API call
             console.log(responseData, "response from the server");
-            setChores([responseData.data, ...chores]);
+            //if successful, it logs the server's response,
+            //adds the new chore to the existing list
+            setChores([responseData.data, ...chores]);//update the state
+            //sets loading back to false
             setLoading(false);
-        } catch (err) {
+        } catch (err) { 
             setLoading(false);
             console.log(err, "error in handleAddChore");
             setError("Error creating a chore, please try again");
+            //from here we pass it down to the addChores Form 
         }
     }
   // Add a state for total savings
@@ -73,26 +82,26 @@ async function handleDelete(choreId) {
       }
     }
 
-async function handleAddChore(chore) {
-    try {
-        setLoading(true);
-        const responseData = await choresService.createChore(chore);
-        console.log(responseData, "response from the server");
-        setChores([responseData.data, ...chores]);
-        setLoading(false);
-    } catch (err) {
-        setLoading(false);
-        console.log(err, "error in handleAddChore");
-        setError("Error creating a chore, please try again");
-    }
-}
+// async function handleAddChore(chore) {
+//     try {
+//         setLoading(true);
+//         const responseData = await choresService.createChore(chore);
+//         console.log(responseData, "response from the server");
+//         setChores([responseData.data, ...chores]);
+//         setLoading(false);
+//     } catch (err) {
+//         setLoading(false);
+//         console.log(err, "error in handleAddChore");
+//         setError("Error creating a chore, please try again");
+//     }
+// }
 async function getChores() {
     try {
         setLoading(true);
         setTotalSavings(0)
-        const response = await choresService.getAll();
+        const response = await choresService.getAll(); //make an API call
         console.log(response, "data");
-        setChores(response.chores);
+        setChores(response.chores); // update the state
         const completedChores = response.chores.filter(chore => chore.isCompleted)
         console.log(completedChores);
         completedChores.forEach(chore => {
