@@ -66,6 +66,9 @@ import {
           formData.append(fieldName, state[fieldName])
           
       }
+      // set userType to parent
+      formData.append('userType', 1);
+      formData.append('parentUsername', null);
       // if you want to view the formData in the console you have to loop over it, otherwise it will look empty!
       console.log(formData.forEach((item) => console.log(item)));
       // ===================================================================
