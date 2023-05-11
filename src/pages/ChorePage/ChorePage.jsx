@@ -18,7 +18,8 @@ export default function ChorePage({ loggedUser, handleLogout }) {
     const [chores, setChores] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-    
+    // Add a state for total savings
+   const [totalSavings, setTotalSavings] = useState(0);
 
     //we will call this function in our AddChoreForm handleSubmit,
     //this way,  when we get a response from the server we can update our state
@@ -42,8 +43,7 @@ export default function ChorePage({ loggedUser, handleLogout }) {
             //from here we pass it down to the addChores Form 
         }
     }
-  // Add a state for total savings
-  const [totalSavings, setTotalSavings] = useState(0);
+  
 
  
  function handleTotalSavingsChange(choreAmount, isCompleted) {
