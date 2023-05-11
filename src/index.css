@@ -68,3 +68,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+button.ui.animated.button:hover {
+  background-color: lightgray !important;
+}
+
+button.ui.animated.button .hidden.content:hover {
+  display: block !important;
+}

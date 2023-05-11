@@ -3,10 +3,8 @@ import Header from "../../components/Header/Header";
 import AddChoreForm from "../../components/chores/AddChoreForm";
 import ChoreDisplay from "../../components/chores/ChoreDisplay";
 import Loader from "../../components/Loader/Loader";
-
-
-
 import { Grid, Segment } from "semantic-ui-react";
+import { useHistory } from "react-router-dom" ;
 
 // Import API utilities for chores and users from choresService
 
@@ -18,9 +16,21 @@ export default function ChorePage({ loggedUser, handleLogout }) {
     const [chores, setChores] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [open, setOpen] = useState(false);
+    const [editModalOpen, setEditModalOpen] = useState(false);
+    const history = useHistory();
+    const isParent = loggedUser.type === "parent";
     
 
-    async function handleAddChore(chore) {
+    useEffect(() => {
+        async function fetchData() {
+            const chores = await choresService.getAll();
+            setChores(chores);
+        }
+        fetchData();
+    }, []);
+
+async function handleAddChore(chore) {
         try {
             setLoading(true);
             const responseData = await choresService.createChore(chore);
@@ -34,19 +44,14 @@ export default function ChorePage({ loggedUser, handleLogout }) {
         }
     }
   // Add a state for total savings
-  const [totalSavings, setTotalSavings] = useState(0);
+    const [totalSavings, setTotalSavings] = useState(0);
 
  // Add handleTotalSavingsChange function here
  function handleTotalSavingsChange(choreAmount, isCompleted) {
    
       setTotalSavings((previousState) => previousState + choreAmount);
-
-   
-  
   }
 
-
-// Add your functions to handle chores (CRUD operations) here
 
 async function handleUpdateChore(choreId, updatedData) {
     try {
@@ -73,19 +78,7 @@ async function handleDelete(choreId) {
       }
     }
 
-async function handleAddChore(chore) {
-    try {
-        setLoading(true);
-        const responseData = await choresService.createChore(chore);
-        console.log(responseData, "response from the server");
-        setChores([responseData.data, ...chores]);
-        setLoading(false);
-    } catch (err) {
-        setLoading(false);
-        console.log(err, "error in handleAddChore");
-        setError("Error creating a chore, please try again");
-    }
-}
+
 async function getChores() {
     try {
         setLoading(true);
@@ -114,44 +107,17 @@ async function completeChore(choreId, isCompleted) {
          // This sends a request to the server to mark the chore as completed
       await choresService.completeChore(choreId, isCompleted); //pass the isCompleted statut to the API call
 
-      // Update the state of the chores in the component
-    // For each chore in the chores array, check if its ID matches the provided choreId
-    // If it does, create a new object with the same properties as the chore, but set isCompleted to true
-    // If it doesn't match, return the original chore object unchanged
-    //   setChores(
-    //     chores.map((chore) =>
-    //       chore._id === choreId ? { ...chore, isCompleted: isCompleted } : chore
-    //     )
-    //   );
-    //     // Find the updatedChore using choreId
-    //   const updatedChore = chores.find((chore) => chore._id === choreId);
-
-      // Call handleTotalSavingsChange with the chore amount and completion status
-    //   handleTotalSavingsChange(updatedChore.amount, isCompleted);
-    
       getChores();
-      //update the total savings
-    //   const updatedChore = chores.find((chore) => chore._id === choreId);
-    //   if (isCompleted) {
-    //     setTotalSavings(totalSavings + updatedChore.amount);
-    //   } else {
-    //     setTotalSavings(totalSavings - updatedChore.amount);
-    //   }
+   
     } catch (err) {
       console.log(err);
     }
   }
-//   function handleTotalSavingsChange(choreAmount, isCompleted) {
-//     if (isCompleted) {
-//       setTotalSavings(totalSavings + choreAmount);
-//     } else {
-//       setTotalSavings(totalSavings - choreAmount);
-//     }
-//   }
 
-useEffect(() => {
-    getChores();
-}, []);
+
+// useEffect(() => {
+//     getChores();
+// }, []);
 
 if (error) {
     return (
@@ -168,18 +134,20 @@ return (
                 <Header loggedUser={ loggedUser } handleLogout={handleLogout} />
             </Grid.Column>
         </Grid.Row>  
+        {loggedUser.role === "parent" && (
+            <Grid.Row>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                    <AddChoreForm handleAddChore={handleAddChore} />
+                </Grid.Column>
+            </Grid.Row>
+        )}
         <Grid.Row>
-            <Grid.Column style={{ maxWidth: 450 }}>
-                <AddChoreForm handleAddChore={handleAddChore} />
+            <Grid.Column style={{ maxWidth: 450 }}> 
+                <Segment>
+                    <h1>Total Savings : {totalSavings}</h1>
+                </Segment>
             </Grid.Column>
         </Grid.Row>
-       <Grid.Row>
-        <Grid.Column style={{ maxWidth: 450 }}> 
-        <Segment>
-            <h1>Total Savings : {totalSavings}</h1>
-        </Segment>
-        </Grid.Column>
-       </Grid.Row>
         <Grid.Row>
             <Grid.Column style={{ maxWidth: 450 }}>
                 <ChoreDisplay
@@ -187,10 +155,10 @@ return (
                     loading={loading}
                     completeChore={completeChore}
                     loggedUser={loggedUser}
-                    handleUpdateChore={handleUpdateChore} // pass the handleUpdateChore function as a prop
-                    handleDelete={handleDelete}
+                    handleUpdateChore={loggedUser.role === "parent" ? handleUpdateChore : null}
+                    handleDelete={loggedUser.role === "parent" ? handleDelete : null}
+                    showEditAndDelete={loggedUser.role === "parent" ? true : false}
                 />
-
             </Grid.Column>
         </Grid.Row>
     </Grid>

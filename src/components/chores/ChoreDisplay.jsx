@@ -1,3 +1,6 @@
+import ButtonExampleAnimated from "./ButtonExampleAnimated";
+
+
 import React, { useEffect, useState } from "react";
 import { Card, Dimmer, Segment, Image, Button } from "semantic-ui-react";
 import Loader from "../Loader/Loader";
@@ -57,15 +60,15 @@ export default function ChoreDisplay({
               />
             ) : (
               <>
-                <Button
-                  basic
-                  color={chore.isCompleted ? "red" : "green" }
-                  onClick={() => {
+               <ButtonExampleAnimated
+                choreAmount={chore.amount?.toFixed(2)}
+                isCompleted={chore.isCompleted}
+                onClick={() => {
                 completeChore(chore._id, !chore.isCompleted);
-                   }}  //pass the new isComplete status
-                >
-                  Mark as Complete
-                </Button>
+            }}
+            buttonColor={chore.isCompleted ? "green" : "red"}
+                />
+
                 <Button onClick={() => setEditingChoreId(chore._id)}>Edit</Button>
               </>
             )}
