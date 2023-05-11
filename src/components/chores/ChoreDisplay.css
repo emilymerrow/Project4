@@ -1,0 +1,5 @@
+/* ChoreDisplay.css */
+.ui.grid > .column.custom-card-width {
+    min-width: 300px;
+  }
+  

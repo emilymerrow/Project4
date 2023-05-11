@@ -1,11 +1,32 @@
-.logo {
+.main-header {
+    border: 400px double black; /* Increase the border thickness */
+    border-radius: 25px; /* Increase the border radius for more rounded corners */
+    padding: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    font-size: 24px;
-    margin-right: auto;
   }
-
-  .header-container {
-    margin-top: 10px; 
+  
+  .logo {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 auto;
   }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  
