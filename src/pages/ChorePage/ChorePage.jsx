@@ -132,7 +132,7 @@ return (
         <Grid.Row>
           <Grid.Column mobile={16} tablet={8} computer={4} className="square">
             <Segment textAlign="center" className="square-segment">
-              <h1>Total Family Earnings</h1>
+              <h1>Total Payout</h1>
               <h2>${totalSavings}</h2>
             </Segment>
           </Grid.Column>

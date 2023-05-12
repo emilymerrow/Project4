@@ -33,6 +33,9 @@ const ChoreSchema = new mongoose.Schema({
     childName: { // Make sure this is inside the ChoreSchema definition
         type: String,
         required: true,
+    },
+    assignedSchedule: {
+        type: String,
     }
 });
 

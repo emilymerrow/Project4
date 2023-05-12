@@ -4,7 +4,7 @@ import "./Header.css";
 
 function PageHeader({ loggedUser, handleLogout }) {
   return (
-    <Segment clearing className="page-header" style={{ textAlign: 'center' }}>
+    <Segment className="page-header" style={{ textAlign: 'center' }} attached='top'>
       <Header as="h2" floated="right">
         <Link to="/">
           <Icon name="home"></Icon>
@@ -23,17 +23,6 @@ function PageHeader({ loggedUser, handleLogout }) {
             avatar
             className="header-avatar"
           ></Image>
-        {/* <Link to={`/${loggedUser?.username}`}>
-          <Image
-            src={
-              loggedUser?.photoUrl
-                ? loggedUser?.photoUrl
-                : "https://react.semantic-ui.com/images/wireframe/square-image.png"
-            }
-            avatar
-            className="header-avatar"
-          ></Image>
-        </Link> */}
       </Header>
       {/* Add the Chores and Allowance App logo */}
       <Header

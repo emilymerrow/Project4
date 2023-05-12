@@ -24,6 +24,7 @@ async function createChore(req, res) {
             description: req.body.description,
             assignedChild: req.user._id,
             amount: req.body.amount,
+            assignedSchedule: req.body.assignedSchedule
         });
 
         await chore.save();
