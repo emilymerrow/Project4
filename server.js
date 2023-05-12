@@ -9,6 +9,7 @@ require("./config/database");
 // Require controllers here
 
 const app = express();
+app.set('view engine', 'ejs');
 
 // add in when the app is ready to be deployed
 // app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
@@ -36,13 +37,17 @@ app.use('/api/chores', require('./routes/api/chores'));
 
 
 
+const manifest = require('./dist/manifest.json');
+console.log(manifest)
+app.use(express.static(path.join(__dirname, "dist")));
+
 // "catch all" route
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.render(path.join(__dirname, 'dist', 'index.ejs'), {manifest});
 });
 
 
-const port = process.env.PORT || 3001;
+
 
 
 
