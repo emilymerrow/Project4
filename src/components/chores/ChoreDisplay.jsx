@@ -4,6 +4,8 @@ import Loader from "../Loader/Loader";
 import UpdateChore from "./UpdateChore";
 import DeleteChore from "./DeleteChore";
 import "./ChoreDisplay.css"; 
+import ButtonExampleAnimated from "./ButtonExampleAnimated";
+
 
 export default function ChoreDisplay({
   chores,
@@ -13,6 +15,7 @@ export default function ChoreDisplay({
   handleUpdateChore,
   handleDelete,
   handleTotalSavingsChange,
+  handleChildNameChange
 }) {
   const [editingChoreId, setEditingChoreId] = useState(null);
 
@@ -23,8 +26,12 @@ export default function ChoreDisplay({
           <Grid.Column key={chore._id} className="custom-card-width">
             <Card>
               <Card.Content>
+                <Card.Meta>Assigned to: {chore.childName}</Card.Meta>
                 <Card.Header>{chore.title}</Card.Header>
-                <Card.Meta>${chore.amount?.toFixed(2)}</Card.Meta>
+                {/* Add difficulty level to Card.Meta */}
+                <Card.Meta>
+                  ${chore.amount?.toFixed(2)} | Difficulty: {chore.difficulty}
+                </Card.Meta>
                 <Card.Description>{chore.description}</Card.Description>
               </Card.Content>
               <Card.Content extra>
@@ -38,15 +45,14 @@ export default function ChoreDisplay({
                   />
                 ) : (
                   <>
-                    <Button
-                      basic
-                      color={chore.isCompleted ? "green" : "red"}
-                      onClick={() => {
+                    <ButtonExampleAnimated
+                        choreAmount={chore.amount}
+                        isCompleted={chore.isCompleted}
+                        onClick={() => {
                         completeChore(chore._id, !chore.isCompleted);
-                      }}
-                    >
-                      Mark as Complete
-                    </Button>
+                    }}
+                    />
+
                     <Button onClick={() => setEditingChoreId(chore._id)}>Edit</Button>
                   </>
                 )}

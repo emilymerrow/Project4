@@ -8,19 +8,23 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import ChorePage from "./pages/ChorePage/ChorePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import AboutUs from './pages/AboutUs/AboutUs';
+import Deductions from './components/Deductions/Deductions';
 
 import userService from "./utils/userService";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 
 
 function App() {
   //when the app loads up, grab the token from storage if there is one
   const [user, setUser] = useState(userService.getUser())
 
+
   // call this function after we make a http request to signup or login a user, to update the token! and our state
   // userService.signup(formData)
   // userService.login(state)
   function handleSignUpOrLogin(){
     // userService.getUser, grabs the token from localstorage, decodes it to an object, that we can we store in our state!
+    console.log(user);
     setUser(userService.getUser())
   }
 
@@ -45,12 +49,13 @@ function App() {
           path="/signup"
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
-        <Route
+        {/* <Route
           path="/:username"
           element={
             <ProfilePage loggedUser={user} handleLogout={handleLogout} />          }
-        />
-        <Route path="/about" element={<AboutUs />} />
+        /> */}
+        <Route path="/deductions" element={<Deductions />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
       </Routes>
     );
 }
@@ -65,8 +70,9 @@ function App() {
       path="/signup"
       element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
     />
-    <Route path="/about" element={<AboutUs />} />
-    <Route path="/*" element={<Navigate to={user ? '/' : '/login'} />} />
+    <Route path="/aboutUs" element={<AboutUs />} />
+    <Route path="/privacy" element={<PrivacyPolicy />} />
+    <Route path="/*" element={<Navigate to={user ? '/' : '/aboutUs'} />} />
   </Routes>
   );
 }

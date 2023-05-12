@@ -3,13 +3,13 @@ import './PrivacyPolicy.css';
 
 function PrivacyPolicy() {
   return (
-    <div className={`ui main text container ${styles.container}`}>
-      <h1 className={`ui header ${styles.header}`}>Privacy Policy</h1>
+    <div className={`ui main text container`}>
+      <h1 className={`ui header`}>Privacy Policy</h1>
       <p>
         Welcome to ChoreBusters' Privacy Policy! We're all about helping you and your kids manage chores and allowances while having a blast. But we also care about your privacy, so let's dive into the serious stuff.
       </p>
-      <h2 className={`ui header ${styles.subheader}`}>1. The Top-Secret Information We Collect</h2>
-      <p className={styles.text}>
+      <h2 className={`ui header subHeader`}>1. The Top-Secret Information We Collect</h2>
+      <p className="text">
         We know you're a super secret agent, but we still need some basic info to make ChoreBusters work. This includes your name, email address, and a password to protect your ChoreBusters account from evil villains.
       </p>
       <h2 className="ui header">2. How We Use Your Classified Data</h2>

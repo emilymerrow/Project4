@@ -5,6 +5,7 @@ import tokenService from "./tokenService";
 const BASE_URL = '/api/chores/';
 
 export function createChore(data){
+  console.log("sending payload:", data);
 	return fetch(BASE_URL, {
 		method: 'POST',
 		body: JSON.stringify(data), 
@@ -20,6 +21,9 @@ export function createChore(data){
 
 		throw new Error('Something went wrong in create Chore'); // this will go to the catch block when we call the function in the AddPostPuppyForm
 		// handleSubmit
+  }).catch(error => {
+    console.error("Server error response:", error.response);
+    throw error;
 	})
 }
 

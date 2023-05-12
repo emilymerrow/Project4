@@ -3,10 +3,10 @@ import Header from "../../components/Header/Header";
 import AddChoreForm from "../../components/chores/AddChoreForm";
 import ChoreDisplay from "../../components/chores/ChoreDisplay";
 import Loader from "../../components/Loader/Loader";
-
-
+import "./ChorePage.css";
 
 import { Grid, Segment } from "semantic-ui-react";
+import { useNavigate } from "react-router-dom";
 
 // Import API utilities for chores and users from choresService
 
@@ -19,8 +19,8 @@ export default function ChorePage({ loggedUser, handleLogout }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     // Add a state for total savings
-   const [totalSavings, setTotalSavings] = useState(0);
-
+    const [totalSavings, setTotalSavings] = useState(0);
+    const navigate = useNavigate();
     //we will call this function in our AddChoreForm handleSubmit,
     //this way,  when we get a response from the server we can update our state
     //in short this function is responsible for adding a new chore to the list
@@ -46,7 +46,7 @@ export default function ChorePage({ loggedUser, handleLogout }) {
   
 
  
- function handleTotalSavingsChange(choreAmount, isCompleted) {
+function handleTotalSavingsChange(choreAmount, isCompleted) {
    
       setTotalSavings((previousState) => previousState + choreAmount);
 
@@ -130,14 +130,28 @@ return (
       <Header loggedUser={loggedUser} handleLogout={handleLogout} />
       <Grid centered>
         <Grid.Row>
-          <Grid.Column>
-            <Segment>
-              <h1>Total Savings : {totalSavings}</h1>
+          <Grid.Column mobile={16} tablet={8} computer={4} className="square">
+            <Segment textAlign="center" className="square-segment">
+              <h1>Total Family Earnings</h1>
+              <h2>${totalSavings}</h2>
+            </Segment>
+          </Grid.Column>
+          {/* Create a grid column with custom className for deductions */}
+          <Grid.Column mobile={16} tablet={8} computer={4} className="square">
+            <Segment
+              textAlign="center"
+              className="square-segment"
+              onClick={() => {
+                // Redirect to the Deductions component when clicked
+                navigate("/deductions");
+              }}
+            >
+              <h1>Deductions</h1>
             </Segment>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column style={{ maxWidth: 450 }}>
+          <Grid.Column>
             <ChoreDisplay
               chores={chores}
               loading={loading}
@@ -149,12 +163,13 @@ return (
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column style={{ maxWidth: 450 }}>
-            <AddChoreForm handleAddChore={handleAddChore} />
+          <Grid.Column>
+            <Segment>
+              <AddChoreForm handleAddChore={handleAddChore} />
+            </Segment>
           </Grid.Column>
         </Grid.Row>
       </Grid>
     </>
   );
-  
-}  
+}

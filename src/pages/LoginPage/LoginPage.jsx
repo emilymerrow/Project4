@@ -3,6 +3,7 @@ import "./LoginPage.css";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import userService from "../../utils/userService";
 import { useNavigate, Link } from "react-router-dom";
+
 import {
   Button,
   Form,
@@ -49,40 +50,35 @@ export default function LoginPage(props) {
   }
 
   return (
-    <Grid
-      textAlign="center"
-      style={{ height: "100vh", width: "100vw" }}
-      verticalAlign="middle"
-    >
+    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="purple" textAlign="center">
-          <Image src="https://i.imgur.com/TM4eA5g.jpg" /> Log-in to your account
+        <Header as="h2" color="teal" textAlign="center">
+          <Image src="https://i.imgur.com/qEh2gbq.png" /> Log-in to Your Account
         </Header>
-        <Form onSubmit={handleSubmit}>
+        <Form size="large" onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input
-              type="email"
+              fluid
+              icon="user"
+              iconPosition="left"
               name="email"
-              placeholder="email"
+              placeholder="Email Address"
               value={state.email}
               onChange={handleChange}
               required
             />
             <Form.Input
+              fluid
+              icon="lock"
+              iconPosition="left"
               name="password"
               type="password"
-              placeholder="password"
+              placeholder="Password"
               value={state.password}
               onChange={handleChange}
               required
             />
-            <Button
-              color="purple"
-              fluid
-              size="large"
-              type="submit"
-              className="btn"
-            >
+            <Button color="teal" fluid size="large" type="submit">
               Login
             </Button>
           </Segment>
@@ -90,7 +86,7 @@ export default function LoginPage(props) {
         <Message>
           New to us? <Link to="/signup">Sign Up</Link>
         </Message>
-        {error ? <ErrorMessage error={error} /> : null}
+        {error && <ErrorMessage error={error} />}
       </Grid.Column>
     </Grid>
   );

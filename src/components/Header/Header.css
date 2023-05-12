@@ -1,4 +1,10 @@
-
+/* 
+.page-header {
+  max-height: 250px;
+    border-radius: 25px; /* Add a larger border-radius for more rounded corners */
+    background-color: lightgreen; /* Set the background color to light green */
+  }
+  
 .logo {
     display: flex;
     justify-content: center;
@@ -21,9 +27,14 @@ body {
   flex-direction: column;
 }
 
+.slogan {
+  margin-top: 0;
+}
+
 
 .header-avatar {
-    width: 500px;
-    height: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
   }
-  
+   */

@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./AboutUs.css";
 
-function AboutUs() {
+
+export default function AboutUs() {
+    const imagePath = 'https://i.imgur.com/ozAKj7c.jpg';
     return (
         <div>
             {/* Navigation bar */}
             <div className="ui inverted fixed menu" style={{paddingTop: "15px"}}>
-                <div className="ui container">
+                <div className="ui container" style={{'margin-top': '0'}}>
                     <Link to="/" className="header item">
-                        <img className="logo" src="https://i.imgur.com/ozAKj7c.jpg" />
                         Chores Buster App
                     </Link>
-                    <Link to='/' className="item">Home</Link>
-                    <Link to="/about" className="item">About Us</Link>
                     <div className="right menu">
                         <Link to="/login" className="item">Login</Link>
                         <Link to="/signup" className="item">Sign Up</Link>
@@ -59,7 +59,7 @@ function AboutUs() {
                       </div>
 
                       {/* Contact Form */}
-                      <h2 className="ui header">Contact Us</h2>
+                      {/* <h2 className="ui header">Contact Us</h2>
                       <div className="ui form">
                         <div className="field">
                           <label>Name</label>
@@ -76,18 +76,18 @@ function AboutUs() {
                         <button className="ui primary button" type="submit">
                           Send
                         </button>
-                      </div>
+                      </div> */}
                     </div>
 
                     {/* Footer */}
                     <div className="ui inverted vertical footer segment">
-                <div className="ui container">
+                <div className="ui container" style={{'margin-top': '0'}}>
                     <div className="ui stackable inverted divided equal height stackable grid">
                         <div className="three wide column">
                             <h4 className="ui inverted header">About Us</h4>
                             <div className="ui inverted link list">
                                 <Link to="#" className="item">Contact Us</Link>
-                                <Link to="#" className="item">Privacy Policy</Link>
+                                <Link to="/privacy" className="item">Privacy Policy</Link>
                                 <Link to="#" className="item">Terms and Conditions</Link>
                             </div>
                         </div>
@@ -111,5 +111,4 @@ function AboutUs() {
         </div>
     );
 }
-export default AboutUs;
 

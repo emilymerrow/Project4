@@ -29,8 +29,13 @@ const ChoreSchema = new mongoose.Schema({
     totalSavings: {
         type: Number,
         default: 0
+    },
+    childName: { // Make sure this is inside the ChoreSchema definition
+        type: String,
+        required: true,
     }
 });
+
 
 
 // method to complete a chore and update the avings

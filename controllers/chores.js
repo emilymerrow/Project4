@@ -19,6 +19,7 @@ async function createChore(req, res) {
     
     try {
         const chore = new Chore({
+            childName: req.body.childName,
             title: req.body.title,
             description: req.body.description,
             assignedChild: req.user._id,
@@ -94,7 +95,7 @@ async function completeChore(req, res) {
 
         //Find the chore in the database by its ID
         const chore = await Chore.findById(id);
-
+        console.log(chore);
         // If the chore doesn't exist, return a 404 error
         if (!chore) {
             return res.status(404).json({message: 'Chore not found'});
