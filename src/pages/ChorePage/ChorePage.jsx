@@ -126,50 +126,74 @@ if (error) {
     );
 }
 return (
-    <>
-      <Header loggedUser={loggedUser} handleLogout={handleLogout} />
-      <Grid centered>
-        <Grid.Row>
-          <Grid.Column mobile={16} tablet={8} computer={4} className="square">
-            <Segment textAlign="center" className="square-segment">
-              <h1>Total Payout</h1>
-              <h2>${totalSavings}</h2>
-            </Segment>
-          </Grid.Column>
-          {/* Create a grid column with custom className for deductions */}
-          <Grid.Column mobile={16} tablet={8} computer={4} className="square">
-            <Segment
-              textAlign="center"
-              className="square-segment"
-              onClick={() => {
-                // Redirect to the Deductions component when clicked
-                navigate("/deductions");
+  <>
+    <Header loggedUser={loggedUser} handleLogout={handleLogout} />
+    <Grid centered style={{ marginTop: '1rem' }}
+    >
+      <Grid.Row>
+        <Grid.Column mobile={16} tablet={8} computer={4} className="square">
+          <Segment textAlign="center" className="square-segment" style={{ padding: '0.5em', border: '2px solid black', borderRadius: '5px' }}>
+            <h2 style={{ borderBottom: '2px solid black', paddingBottom: '0.5em', marginBottom: '0.5em' }}>Total Payout</h2>
+            <button
+              style={{
+                width: '50%',
+                height: '25%',
+                fontSize: '1rem',
+                borderRadius: '5px',
+                backgroundColor: '#4E73DF',
+                color: 'white',
               }}
             >
-              <h1>Deductions</h1>
-            </Segment>
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column>
-            <ChoreDisplay
-              chores={chores}
-              loading={loading}
-              completeChore={completeChore}
-              loggedUser={loggedUser}
-              handleUpdateChore={handleUpdateChore}
-              handleDelete={handleDelete}
-            />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column>
-            <Segment>
-              <AddChoreForm handleAddChore={handleAddChore} />
-            </Segment>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </>
-  );
-}
+              ${totalSavings}
+            </button>
+          </Segment>
+        </Grid.Column>
+        {/* Create a grid column with custom className for deductions */}
+        <Grid.Column mobile={16} tablet={8} computer={4} className="square">
+          <Segment textAlign="center" className="square-segment" style={{ padding: '0.5em', border: '2px solid black', borderRadius: '5px' }}>
+            <h2 style={{ borderBottom: '2px solid black', paddingBottom: '0.5em', marginBottom: '0.5em' }}>Deductions</h2>
+            <button
+              style={{
+                width: '50%',
+                height: '25%',
+                fontSize: '1rem',
+                borderRadius: '5px',
+                backgroundColor: '#4E73DF',
+                color: 'white',
+              }}
+              onClick={() => {
+                // Redirect to the Deductions component when clicked
+                navigate('/deductions');
+              }}
+            >
+              Deductions
+            </button>
+          </Segment>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column
+        style={{
+          maxWidth: 1600
+        }}>
+          <ChoreDisplay
+            chores={chores}
+            loading={loading}
+            completeChore={completeChore}
+            loggedUser={loggedUser}
+            handleUpdateChore={handleUpdateChore}
+            handleDelete={handleDelete}
+          />
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row centered>
+        <Grid.Column width={14} style={{ padding: "0 1rem" }}>
+          <Segment>
+            <AddChoreForm handleAddChore={handleAddChore} />
+          </Segment>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+  </>
+);
+            }

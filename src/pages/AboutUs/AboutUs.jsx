@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import "./AboutUs.css";
 
 
@@ -8,7 +9,7 @@ export default function AboutUs() {
     return (
         <div>
             {/* Navigation bar */}
-            <div className="ui inverted fixed menu" style={{paddingTop: "15px"}}>
+            <div className="ui inverted fixed menu teal" style={{paddingTop: "15px"}}>
                 <div className="ui container" style={{'margin-top': '0'}}>
                     <Link to="/" className="header item">
                         Chores Buster App

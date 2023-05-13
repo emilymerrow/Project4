@@ -1,5 +1,5 @@
-.page-header {
+.header {
   width: 100%;
-  margin: 0 !important;
-  padding: 0 !important;
+  position: relative;
+  z-index: 1000;
 }

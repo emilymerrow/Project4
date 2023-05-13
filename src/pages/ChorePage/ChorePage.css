@@ -1,4 +1,4 @@
-.square {
+/* .square {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,4 +13,10 @@
     align-items: center;
     cursor: pointer;
   }
-  
+   */
+/* 
+   .header {
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+  } */

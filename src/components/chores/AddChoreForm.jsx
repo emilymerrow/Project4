@@ -71,11 +71,21 @@ export default function AddChoreForm({ handleAddChore }) {
   ]
 
   return (
-    <Segment inverted color="teal">
+    <Segment
+    inverted
+    style={{
+      backgroundImage: 'url("https://i.imgur.com/AMZjBTa.jpg")',
+      backgroundSize: '200%',
+      backgroundPosition: 'left',
+      border: '2px solid black',
+      borderRadius: '10px',
+
+    }}
+  >
       <Header as="h2" textAlign="center" inverted>
         Enter a New Chore
       </Header>
-      <Form inverted onSubmit={handleSubmit}>
+      <Form inverted onSubmit={handleSubmit} style={{ width: '80%',}}>
         <Form.Group widths="equal">
           <Form.Input
             fluid
@@ -110,16 +120,16 @@ export default function AddChoreForm({ handleAddChore }) {
             onChange={handleChoreNameChange}
           />
           
-  <label
-    style={{
-      fontSize: "1em",
-      fontFamily: "Roboto, sans-serif",
-      color: "black",
-    }}
-  >
-    Chore Value
-  </label>
-  <Form.Field control={Select}
+              <label
+                style={{
+                  fontSize: "1em",
+                  fontFamily: "Roboto, sans-serif",
+                  color: "black",
+                }}
+              >
+          Chore Value
+        </label>
+        <Form.Field control={Select}
             
             options={options}
             placeholder='Value'

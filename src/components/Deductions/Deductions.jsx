@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import { Dropdown, Form, TextArea, Message } from "semantic-ui-react";
+import Header from '../Header/Header';
 
 const Deductions = () => {
     // State variables to store form data
@@ -37,6 +38,7 @@ const Deductions = () => {
   
     return (
       <div>
+        <Header/>
         <h1 style={{
           marginBottom: '5rem',
           backgroundColor: '#00b5ad',

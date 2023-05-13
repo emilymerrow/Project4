@@ -60,21 +60,23 @@ export default function ChoreList() {
     //Render the ChoreForm and the list of chores 
     return (
         <div>
-            <h2>Total Savings: ${totalAmount}</h2>
-            <ChoreForm onSubmit={handleCreateOrUpdate} choreToEdit={choreToEdit} />
-            <ul>
-                {chores.map((chore) => (
-                    <li key={chore._id}>
-                        {chore.title} - {chore.description} - {chore.rewardAmount}
-            <button onClick={() => setChoreToEdit(chore)}>Edit</button>
-            <button onClick={() => handleDelete(chore._id)}>Delete</button>
-            <button onClick={() => handleCompleteChore(chore._id, !chore.isCompleted)}
-            >
-                {chore.isCompleted ? "Mark as Incomplete" : "Mark as Complete"}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-} 
+          <h2>Total Savings: ${totalAmount}</h2>
+          <ChoreForm onSubmit={handleCreateOrUpdate} choreToEdit={choreToEdit} />
+          <Grid centered columns={4} doubling>
+            {chores.map((chore) => (
+              <Grid.Column key={chore._id} style={{ marginBottom: "2em" }}>
+                <Card
+                  style={{
+                    width: "auto",
+                    border: "10px solid black",
+                    borderRadius: "10px",
+                  }}
+                >
+                  {/* Card content */}
+                </Card>
+              </Grid.Column>
+            ))}
+          </Grid>
+        </div>
+      );
+    }
