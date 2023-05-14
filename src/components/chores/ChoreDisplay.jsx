@@ -44,7 +44,7 @@ export default function ChoreDisplay({
                 }}
                 >{chore.title}</Card.Header>
                   <Card.Meta>
-                    <span style={{ fontFamily: 'Georgia' }}>Assigned to:</span>
+                    <span style={{ fontFamily: 'Georgia' }}>Assigned to</span>
                     <span
                       style={{
                         fontSize: "1.2em",

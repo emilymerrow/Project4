@@ -6,53 +6,29 @@ function PageHeader({ loggedUser, handleLogout }) {
   return (
     <Segment
       className="header"
+      attached="top"
+      inverted
       style={{
-        textAlign: "center",
         backgroundImage: "url(https://i.imgur.com/AMZjBTa.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         paddingTop: "1rem",
         paddingBottom: "1rem",
       }}
-      attached="top"
     >
-      <Grid>
-        <Grid.Column textAlign="right">
-          <Header floated="right" style={{ marginTop: "2px", fontSize: "1.5rem" }}>
-            <Link to="/">
-              <Icon name="home"></Icon>
-            </Link>
-            <div className="header-link">
-              <Link to="/aboutUs" className="outline-link">About Us</Link>
-            </div>
-            <div className="header-link">
-              <Link to="" onClick={handleLogout} className="outline-link">
-                Logout
-              </Link>
-            </div>
-          </Header>
-        </Grid.Column>
-      </Grid>
-      <div className="logo-container">
-        <Image
-          src="https://i.imgur.com/Ltbxtzf.png"
-          alt="Logo"
-          size="medium"
-          centered
-          style={{ background: "none" }}
-        />
-      </div>
-      <Grid>
-        <Grid.Column textAlign="center">
+      <div className="header-container">
+        <div className="header-logo">
           <Header
             as="h4"
             textAlign="center"
-            className="logo"
+            inverted
             style={{
-              fontSize: "2em",
+              fontSize: "6em",
               textShadow: "2px 2px 2px black",
               fontFamily: "Comic Sans MS, sans-serif",
               color: "#FFB84D",
+              marginTop: "0",
+              marginBottom: "1rem",
             }}
           >
             Chores Buster
@@ -60,23 +36,50 @@ function PageHeader({ loggedUser, handleLogout }) {
           <Header
             as="h4"
             textAlign="center"
+            inverted
             className="slogan"
+            style={{
+              marginBottom: 0,
+              color: "black",
+              fontSize: "2em",
+              fontFamily: "Dancing Script",
+              fontWeight: "bold",
+            }}
           >
-            Proudly raising responsible children since 2023
+            Raising responsible children since 2023
           </Header>
-        </Grid.Column>
-      </Grid>
-      <Header floated="left" style={{ width: "100px" }}>
+        </div>
         <Image
-          src={
-            loggedUser?.photoUrl
-              ? loggedUser?.photoUrl
-              : "https://react.semantic-ui.com/images/wireframe/square-image.png"
-          }
-          avatar
-          className="header-avatar"
-        ></Image>
-      </Header>
+          src="https://i.imgur.com/RvBW3Sa.png"
+          centered
+          size="large"
+          style={{ marginTop: "auto", marginBottom: 0 }}
+        />
+        <div className="header-links right-aligned">
+          <Header floated="right" style={{ marginTop: "2px", fontSize: "1.5rem" }}>
+            <Link to="/" className="outline-link">
+              <Icon name="home"></Icon>
+            </Link>
+            <Link to="/aboutUs" className="outline-link">
+              About Us
+            </Link>
+            <Link to="/login" onClick={handleLogout} className="outline-link">
+              Logout
+            </Link>
+          </Header>
+        </div>
+        <div className="header-avatar">
+          <Image
+            src={
+              loggedUser?.photoUrl ||
+              "https://react.semantic-ui.com/images/wireframe/square-image.png"
+            }
+            avatar
+            size="tiny"
+            floated="left"
+          />
+        </div>
+      </div>
     </Segment>
   );
 }

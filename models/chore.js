@@ -30,7 +30,7 @@ const ChoreSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    childName: { // Make sure this is inside the ChoreSchema definition
+    childName: { 
         type: String,
         required: true,
     },
@@ -41,7 +41,7 @@ const ChoreSchema = new mongoose.Schema({
 
 
 
-// method to complete a chore and update the avings
+// method to complete a chore and update the savings
 // define the completeChore method for the ChoreSchema
 ChoreSchema.methods.completeChore = async function (userId) {
     // Set the isCompleted field of the chore to true, marking it as completed

@@ -23,9 +23,9 @@ const ContactUs = () => {
           alignItems: 'center',
           padding: '60px 0',
           backgroundColor: '#f0f0f0',
-          minHeight: '100vh',
+          
           width: '100%',
-          marginTop: '80px',
+          
         }}
       >
         <h1
@@ -85,7 +85,66 @@ const ContactUs = () => {
 
           
       </div>
+    
+
+<div className="ui inverted vertical footer segment" style={{ backgroundColor: '#48494b', paddingTop: '0.1rem', paddingBottom: '0.1rem' }}>
+<div className="ui container" style={{ marginTop: '0' }}>
+  <div className="ui stackable inverted divided equal height stackable grid">
+    <div className="eight wide column">
+      <div className="ui inverted center aligned">
+        <h4 className="ui inverted header" style={{ fontSize: '1.5rem', color: '#FFF', marginBottom: '0.10rem', fontFamily: 'Open Sans, sans-serif' }}>
+          About Us
+        </h4>
+      </div>
+      <div className="ui inverted link list" style={{ display: 'flex', justifyContent: 'space-between', padding: '0 1rem' }}>
+        <Link to="/contactUs" className="item inverted-hover" style={{ fontSize: '1.2rem', color: '#FFF' }}>
+          Contact Us
+        </Link>
+        <Link to="/privacy" className="item inverted-hover" style={{ fontSize: '1.2rem', color: '#FFF' }}>
+          Privacy Policy
+        </Link>
+        <Link to="#" className="item inverted-hover" style={{ fontSize: '1.2rem', color: '#FFF' }}>
+          Terms and Conditions
+        </Link>
+      </div>
     </div>
+
+    <div className="eight wide column">
+      <div className="ui inverted center aligned">
+        <h4 className="ui inverted header" style={{ marginBottom: '1rem', fontSize: '1.3rem', fontFamily: 'Open Sans, sans-serif' }}>
+          Connect with Us
+        </h4>
+      </div>
+      <div className="ui inverted link list" style={{ display: 'flex', justifyContent: 'space-between', padding: '0 1rem' }}>
+        <Link to="#" className="item inverted-hover">
+          <img
+            src="https://i.imgur.com/VnI397M.png"
+            alt="Facebook Logo"
+            style={{ width: '30px', height: '30px' }}
+          />
+        </Link>
+        <Link to="#" className="item">
+          <img
+            src="https://i.imgur.com/8ELwz4r.png"
+            alt="Instagram Logo"
+            style={{ width: '30px', height: '30px' }}
+          />
+        </Link>
+        <Link to="#" className="item">
+          <img
+            src="https://i.imgur.com/mXI54Sj.png"
+            alt="Twitter Logo"
+            style={{ width: '70px', height: '60px' }}
+          />
+        </Link>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        
+</div>
   );
 };
 

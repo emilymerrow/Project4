@@ -28,13 +28,13 @@
     background-size: cover;
     color: black;
   
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
   }
   
   .ui.vertical.footer.segment {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
   }
   
   .ui.stackable.equal.height.stackable.grid {

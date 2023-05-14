@@ -2,7 +2,7 @@
   .custom-segment {
     padding-left: 5%;
     padding-right: 5%;
-    width: 100% !important;
+    /* width: 100% !important; */
   }
   .black-label {
     color: black;

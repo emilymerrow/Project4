@@ -20,12 +20,13 @@ export default function AboutUs() {
         >
           WELCOME!
         </h1>
-
+        <div style={{ width: '90%', margin: '0 auto' }}></div>
         <p style={{ fontSize: '1.2em', fontFamily: 'Georgia, serif' }}>
           Chores Buster is a fun, family-friendly web app designed to make managing chores and allowances a breeze for
           families. Inspired by a 9-year-old as a way to stay out of trouble for missed chores, his innovative idea has
           been transformed into a handy tool for parents and kids to enjoy together.
         </p>
+       
         <h2
           className="ui header"
           style={{
@@ -60,12 +61,12 @@ export default function AboutUs() {
       </div>
 
       {/* Footer */}
-      <div className="ui inverted vertical footer segment" style={{ backgroundColor: '#48494b' }}>
+      <div className="ui inverted vertical footer segment" style={{ backgroundColor: '#48494b', paddingTop: '0.1rem', paddingBottom: '0.1rem' }}>
   <div className="ui container" style={{ marginTop: '0' }}>
     <div className="ui stackable inverted divided equal height stackable grid">
       <div className="eight wide column">
         <div className="ui inverted center aligned">
-          <h4 className="ui inverted header" style={{ fontSize: '1.5rem', color: '#FFF', marginBottom: '1rem', fontFamily: 'Open Sans, sans-serif' }}>
+          <h4 className="ui inverted header" style={{ fontSize: '1.5rem', color: '#FFF', marginBottom: '0.10rem', fontFamily: 'Open Sans, sans-serif' }}>
             About Us
           </h4>
         </div>

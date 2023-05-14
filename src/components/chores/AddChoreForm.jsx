@@ -82,9 +82,9 @@ export default function AddChoreForm({ handleAddChore }) {
 
     }}
   >
-      <Header as="h2" textAlign="center" inverted>
-        Enter a New Chore
-      </Header>
+<Header as="h2" textAlign="center" style={{ color: 'black', fontFamily: 'Roboto, sans-serif', fontSize: '2em' }}>
+  Enter a New Chore
+</Header>
       <Form inverted onSubmit={handleSubmit} style={{ width: '80%',}}>
         <Form.Group widths="equal">
           <Form.Input
@@ -102,6 +102,7 @@ export default function AddChoreForm({ handleAddChore }) {
             name="childName"
             value={childName}
             onChange={handleChildNameChange}
+            
           />
           <Form.Input
             fluid
@@ -119,8 +120,8 @@ export default function AddChoreForm({ handleAddChore }) {
             value={choreName}
             onChange={handleChoreNameChange}
           />
-          
-              <label
+          <Form.Field>
+          <label
                 style={{
                   fontSize: "1em",
                   fontFamily: "Roboto, sans-serif",
@@ -129,13 +130,13 @@ export default function AddChoreForm({ handleAddChore }) {
               >
           Chore Value
         </label>
-        <Form.Field control={Select}
-            
+        <Form.Field 
+            control={Select}
             options={options}
             placeholder='Value'
-            onChange={handleChoreValueChange}/>
-  
-
+            onChange={handleChoreValueChange}
+        />
+        </Form.Field>
         </Form.Group>
         <Form.TextArea
           label={{
@@ -152,6 +153,7 @@ export default function AddChoreForm({ handleAddChore }) {
           value={choreDescription}
           onChange={handleChoreDescriptionChange}
         />
+        <Form.Field>
           <label
             style={{
               fontSize: '1em',
@@ -161,15 +163,13 @@ export default function AddChoreForm({ handleAddChore }) {
           >
             Assigned Schedule
           </label>
-        <Form.Field control={Select}
-            
+        <Form.Field 
+            control={Select}
             options={scheduleOptions}
             placeholder='Assigned Schedule'
-            onChange={handleAssignedScheduleChange}/>
-          
-            
-          
-        
+            onChange={handleAssignedScheduleChange}
+            />
+            </Form.Field>
         <Form.Field>
           <label
             style={{

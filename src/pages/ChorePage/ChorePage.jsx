@@ -25,6 +25,9 @@ export default function ChorePage({ loggedUser, handleLogout }) {
     //this way,  when we get a response from the server we can update our state
     //in short this function is responsible for adding a new chore to the list
     //by communicating with the server and handling the response or errors
+
+
+    
     async function handleAddChore(chore) {    
         try {
             setLoading(true);
