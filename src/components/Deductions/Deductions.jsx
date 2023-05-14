@@ -38,86 +38,99 @@ const Deductions = () => {
   
     return (
       <div>
-        <Header/>
-        <h1 style={{
-          marginBottom: '5rem',
-          backgroundColor: '#00b5ad',
-          color: 'white',
-          border: '1px solid black',
-          padding: '2rem',
-          display: 'inline-block',
-          textShadow: '2px 2px 2px black',
-          WebkitTextStroke: '1px black',
-          textStroke: '1px black'
-        }}>
-          DEDUCTIONS
-        </h1>
+        <Header />
+        <div style={{ padding: '0 10%', marginTop: "2rem" }}>
+          <h1
+            style={{
+              marginBottom: '1.5rem',
+              backgroundColor: '#00b5ad',
+              color: 'white',
+              border: '1px solid black',
+              padding: '1.5rem',
+              display: 'inline-block',
+              textShadow: '2px 2px 2px black',
+              WebkitTextStroke: '1px black',
+              textStroke: '1px black',
+            }}
+          >
+            DEDUCTIONS
+          </h1>
     
-        <Message info style={{ marginBottom: '5rem' }}>
-          <Message.Header style={{ fontSize: '1.5em' }}>Note:</Message.Header>
-          <p style={{
-            fontSize: '1.5em',
-            lineHeight: '2em',
-            color: 'red',
-            fontFamily: 'Georgia, serif'
-          }}>
-            Starting May 2023, the new law addressing eye-rolling, sarcasm, and talking back will be implemented and serious deductions will take place.
-            <br />
-            For further details or inquiries, please reach out to your local authorities.
-          </p>
-        </Message>
+          <Message info style={{ marginBottom: '1.5rem' }}>
+            <Message.Header style={{ fontSize: '1.5em' }}>Note:</Message.Header>
+            <p
+              style={{
+                fontSize: '1.5em',
+                lineHeight: '2em',
+                color: 'red',
+                fontFamily: 'Georgia, serif',
+              }}
+            >
+              Effective May 2023, the new law addressing eye-rolling, sarcasm, and talking back will be implemented and
+              serious deductions will take place.
+              <br />
+              For further details or inquiries, please reach out to your local authorities.
+            </p>
+          </Message>
     
-        <Form>
-          <Form.Field>
-            <label style={{ fontSize: '1.5em', fontFamily: 'Comic Sans MS, sans-serif', marginBottom: '1rem' }}>Account</label>
-            <Dropdown
-              style={{ backgroundColor: '#d1f9f7' }}
-              selection
-              options={[
-                {
-                  key: 'savings',
-                  text: `Savings Account (${totalSavings})`,
-                  value: 'Savings Account'
-                },
-                {
-                  key: 'allowance',
-                  text: 'Allowance Account (20)',
-                  value: 'Allowance Account'
-                }
-              ]}
-              value={account}
-              onChange={handleAccountChange}
-            />
-          </Form.Field>
+          <Form>
+            <Form.Field>
+              <label style={{ fontSize: '1.5em', fontFamily: 'Georgia', marginBottom: '1rem' }}>
+                Account
+              </label>
+              <Dropdown
+                style={{ backgroundColor: '#d1f9f7' }}
+                selection
+                options={[
+                  {
+                    key: 'savings',
+                    text: `Savings Account (${totalSavings})`,
+                    value: 'Savings Account',
+                  },
+                  {
+                    key: 'allowance',
+                    text: 'Allowance Account (20)',
+                    value: 'Allowance Account',
+                  },
+                ]}
+                value={account}
+                onChange={handleAccountChange}
+              />
+            </Form.Field>
     
-          <Form.Field>
-            <label style={{ fontSize: '1.5em', fontFamily: 'Comic Sans MS, sans-serif', marginBottom: '1rem' }}>Amount to be deducted</label>
-            <Dropdown
-              selection
-              options={[
-                { key: '1', text: '$1', value: 1 },
-                { key: '2', text: '$2', value: 2 },
-                { key: '5', text: '$5', value: 5 },
-                { key: '10', text: '$10', value: 10 },
-                { key: '20', text: '$20', value: 20 }
-              ]}
-              value={deductAmount}
-              onChange={(e, { value }) => handleDeductAmountChange(value)}
-              style={{ backgroundColor: '#d1f9f7' }}
-            />
-          </Form.Field>
+            <Form.Field>
+              <label style={{ fontSize: '1.5em', fontFamily: 'Georgia', marginBottom: '1rem' }}>
+                Amount to be deducted
+              </label>
+              <Dropdown
+                selection
+                options={[
+                  { key: '1', text: '$1', value: 1 },
+                  { key: '2', text: '$2', value: 2 },
+                  { key: '5', text: '$5', value: 5 },
+                  { key: '10', text: '$10', value: 10 },
+                  { key: '20', text: '$20', value: 20 },
+                ]}
+                value={deductAmount}
+                onChange={(e, { value }) => handleDeductAmountChange(value)}
+                style={{ backgroundColor: '#d1f9f7' }}
+              />
+            </Form.Field>
     
-          <Form.Field>
-            <label style={{ fontSize: '1.5em', fontFamily: 'Comic Sans MS, sans-serif', marginBottom: '1rem' }}>Reason for Deduction</label>
-            <TextArea
-              placeholder="Deduction for what?"
-              value={description}
-              onChange={handleDescriptionChange}
-              style={{ backgroundColor: '#d1f9f7' }}
-            />
-          </Form.Field>
+            <Form.Field>
+              <label style={{ fontSize: '1.5em', fontFamily: 'Georgia', marginBottom: '1rem' }}>
+                Reason for Deduction
+              </label>
+              <TextArea
+                placeholder="Deduction for what?"
+                value={description}
+                onChange={handleDescriptionChange}
+                style={{ backgroundColor: '#d1f9f7' }}
+              />
+            </Form.Field>
     
-          <Form.Button onClick={handleApplyClick}
+            <Form.Button
+              onClick={handleApplyClick}
               style={{
                 fontSize: '1.2em',
                 backgroundColor: '#FFDAB9',
@@ -127,14 +140,15 @@ const Deductions = () => {
                 border: 'none',
                 borderRadius: '4px'
               }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = 'gray'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = '#FFDAB9'}
-          >
-             Apply
+              onMouseEnter={(e) => (e.target.style.backgroundColor = 'gray')}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = '#FFDAB9')}
+            >
+              Apply
             </Form.Button>
-        </Form>
+          </Form>
+        </div>
       </div>
     );
   }
-  
   export default Deductions;
+  

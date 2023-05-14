@@ -9,6 +9,7 @@ import ChorePage from "./pages/ChorePage/ChorePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import AboutUs from './pages/AboutUs/AboutUs';
 import Deductions from './components/Deductions/Deductions';
+import ContactUs from './components/ContactUs/ContactUs';
 
 import userService from "./utils/userService";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
@@ -56,6 +57,8 @@ function App() {
         /> */}
         <Route path="/deductions" element={<Deductions />} />
         <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
     );
 }
@@ -71,6 +74,7 @@ function App() {
       element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
     />
     <Route path="/aboutUs" element={<AboutUs />} />
+    <Route path="/contactUs" element={<ContactUs />} />
     <Route path="/privacy" element={<PrivacyPolicy />} />
     <Route path="/*" element={<Navigate to={user ? '/' : '/aboutUs'} />} />
   </Routes>

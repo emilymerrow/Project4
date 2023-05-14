@@ -1,3 +1,21 @@
-.container {
-    margin-top: 0;
-}
+.ui.main.text.container {
+    margin-top: 1px; /* Adjust the top margin to move the header higher */
+    max-width: 100%; /* Set max-width to 100% to make it reach farther on both sides */
+    padding-left: 3rem; /* Add some padding on the left side */
+    padding-right: 3rem; /* Add some padding on the right side */
+  }
+  .team-member-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  .column-segment {
+    border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+  }
+  .item.inverted-hover:hover {
+    background-color: grey;
+  }
+
+

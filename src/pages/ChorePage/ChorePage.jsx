@@ -128,11 +128,13 @@ if (error) {
 return (
   <>
     <Header loggedUser={loggedUser} handleLogout={handleLogout} />
-    <Grid centered style={{ marginTop: '1rem' }}
+    <div className="chorepage-wrapper"> {/* Add this wrapper div */}
+         <Grid centered style={{ marginTop: '1rem' }}
+        
     >
       <Grid.Row>
         <Grid.Column mobile={16} tablet={8} computer={4} className="square">
-          <Segment textAlign="center" className="square-segment" style={{ padding: '0.5em', border: '2px solid black', borderRadius: '5px' }}>
+          <Segment textAlign="center" className="square-segment" style={{ padding: '1em', border: '2px solid black', borderRadius: '5px' }}>
             <h2 style={{ borderBottom: '2px solid black', paddingBottom: '0.5em', marginBottom: '0.5em' }}>Total Payout</h2>
             <button
               style={{
@@ -194,6 +196,7 @@ return (
         </Grid.Column>
       </Grid.Row>
     </Grid>
+    </div>
   </>
 );
             }

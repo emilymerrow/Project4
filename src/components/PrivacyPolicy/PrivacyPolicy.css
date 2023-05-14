@@ -1,4 +1,4 @@
-.container {
+/* .container {
     margin-top: 100px;
   }
   
@@ -20,5 +20,62 @@
     font-size: 1.1rem;
     line-height: 1.6;
     color: #424242;
+  }
+   */
+
+   .privacy-policy-container {
+    background-image: url('https://i.imgur.com/vzLVPaz.png');
+    background-size: cover;
+    color: black;
+  
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .ui.vertical.footer.segment {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .ui.stackable.equal.height.stackable.grid {
+    margin-top: 2rem;
+  }
+  
+  .ui.container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  
+  .footer-background {
+    background-image: url('https://i.imgur.com/PK8PqYW.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .footer-content .item {
+    color: #FFF;
+    font-size: 1.2rem;
+  }
+  
+  .footer-content .item:hover {
+    color: #FFF;
+  }
+  
+  .footer-content img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .footer-content img.twitter-logo {
+    width: 70px;
+    height: 60px;
   }
   
