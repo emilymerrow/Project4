@@ -5,7 +5,7 @@
 
 <div align="center">
   <p style="font-size: 1.2rem; line-height: 1.5rem; margin-top: 1.5rem;">
-    Chores Buster is an innovative app designed to help families manage and keep track of household chores while teaching children about financial responsibility. It streamlines the process of assigning chores, tracking completion, and calculating rewards or deductions.
+    Chores Buster is a fun, family-friendly web app designed to make managing chores and allowances a breeze for families. Inspired by a 9-year-old as a way to stay out of trouble for missed chores, his innovative idea has been transformed into a handy tool for parents and kids to enjoy together.
   </p>
   <p style="font-size: 1.2rem; line-height: 1.5rem; margin-top: 1.5rem;">
     The app allows users to assign chores to family members, set difficulty levels, track the total family earnings, and manage deductions. Chores Buster aims to make managing household chores a breeze and foster collaboration within the family.
@@ -52,12 +52,9 @@
 
 <div align="center">
   <h2 style="font-size: 2rem; margin-top: 1.5rem;">Getting Started</h2>
+  
   <p style="font-size: 1.2rem; line-height: 1.5rem;">
-    To get started with Chores Buster, visit the deployed app:<br>
-    <a href="https://emilymerrow.onrender.com" style="color: #4E73DF;">Chores Buster Deployment Link</a>
-  </p>
-  <p style="font-size: 1.2rem; line-height: 1.5rem;">
-    For project planning and details, refer to the Trello board:<br>
+    For project planning and details, please refer to our Trello board:<br>
     <a href="https://trello.com/b/WnVWenBh/chores-buster" style="color: #4E73DF;">Trello Board</a>
   </p>
 </div>
@@ -71,7 +68,7 @@
 
 <ol>
     <li>
-        <strong>Integration with Smart House System:</strong> We aim to integrate choresApp with popular smart home systems like Google Home and Amazon Alexa, allowing users to automate chore reminders and provide voice commands for task completion.
+        <strong>The ability to integrate the App with our Smart House System:</strong> We aim to integrate choresApp with popular smart home systems like Google Home and Amazon Alexa, allowing users to automate chore reminders and provide voice commands for task completion.
     </li>
     <li>
         <strong>Deductions for Incomplete Chores:</strong> Users will be able to apply deductions or penalties for incomplete or poorly executed chores, teaching responsibility and encouraging thoroughness.

@@ -21,7 +21,7 @@ const ContactUs = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          padding: '60px 0',
+          padding: '10px 0',
           backgroundColor: '#f0f0f0',
           
           width: '100%',
