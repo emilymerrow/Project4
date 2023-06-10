@@ -63,6 +63,9 @@ function PageHeader({ loggedUser, handleLogout }) {
             <Link to="/contactUs" className="outline-link">
               Contact Us
             </Link>
+            <Link to="/" className="outline-link">
+              Task Manager
+            </Link>
             <Link to="/login" onClick={handleLogout} className="outline-link">
               Logout
             </Link>

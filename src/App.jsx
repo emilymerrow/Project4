@@ -38,6 +38,10 @@ function App() {
     // are we logged in?
     return (
       <Routes>
+         <Route
+          path="/aboutUs"
+          element={<ChorePage loggedUser={user} handleLogout={handleLogout} />}
+        />
         <Route
           path="/"
           element={<ChorePage loggedUser={user} handleLogout={handleLogout} />}
