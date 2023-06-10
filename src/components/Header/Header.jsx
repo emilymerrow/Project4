@@ -57,11 +57,11 @@ function PageHeader({ loggedUser, handleLogout }) {
         />
         <div className="header-links right-aligned">
           <Header floated="right" style={{ marginTop: "2px", fontSize: "1.5rem" }}>
-            <Link to="/" className="outline-link">
+          <Link to="/aboutUs" className="outline-link">
               <Icon name="home"></Icon>
             </Link>
-            <Link to="/aboutUs" className="outline-link">
-              About Us
+            <Link to="/contactUs" className="outline-link">
+              Contact Us
             </Link>
             <Link to="/login" onClick={handleLogout} className="outline-link">
               Logout

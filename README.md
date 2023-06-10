@@ -59,7 +59,7 @@
   </p>
 </div>
 
-
+![My Image](https://i.imgur.com/nLw5mHx.png)
 
 <h2 style="font-size: 2rem; margin-top: 1.5rem; text-align: center;">Future Plans</h2>
 <p style="font-size: 1.2rem; line-height: 1.5rem; text-align: center;">
@@ -94,7 +94,7 @@
 </body>
 </html>
 
-
+![My Image](https://i.imgur.com/95ALTNc.png)
 <div align="center">
   <h2 style="font-size: 2rem; margin-top: 1.5rem;">Contact Us</h2>
   <p style="font-size: 1.2rem; line-height: 1.5rem;">
